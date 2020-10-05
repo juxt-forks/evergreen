@@ -1,7 +1,7 @@
 import { Component } from 'react'
-import canUseDom from 'dom-helpers'
 import ReactDOM from 'react-dom'
 import PropTypes from 'prop-types'
+import canUseDom from '../../lib/canUseDom'
 
 let portalContainer
 
