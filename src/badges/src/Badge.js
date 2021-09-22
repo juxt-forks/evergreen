@@ -22,11 +22,18 @@ const hoverClassName = css({
 
 const Badge = memo(
   forwardRef(function Badge(props, ref) {
-    const { appearance = 'subtle', className, color = 'neutral', isInteractive = false, ...restProps } = props
+    const {
+      appearance = 'subtle',
+      className,
+      color = 'neutral',
+      isInteractive = false,
+      size = 'small',
+      ...restProps
+    } = props
 
     const { className: themedClassName, ...styleProps } = useStyleConfig(
       'Badge',
-      { appearance, color },
+      { appearance, color, size },
       pseudoSelectors,
       internalStyles
     )
@@ -54,7 +61,15 @@ Badge.propTypes = {
   /**
    * Whether or not to apply hover/focus/active styles
    */
-  isInteractive: PropTypes.bool
+  isInteractive: PropTypes.bool,
+
+
+  /**
+   * Size of the badge
+   * Can be: 300, 400, 500, 600.
+   */
+  size: PropTypes.oneOf(["small", "medium"])
+
 }
 
 export default Badge

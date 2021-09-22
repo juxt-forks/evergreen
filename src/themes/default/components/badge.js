@@ -26,7 +26,23 @@ const appearances = {
   }
 }
 
-const sizes = {}
+const sizes = {
+  small: {
+    height: 16,
+    paddingY: 0,
+    paddingX: 6,
+    borderRadius: 'radii.1',
+    fontSize: '11.5px',
+  },
+  medium: {
+    height: 24,
+    paddingY: 0,
+    paddingX: 8,
+    lineHeight: '24px',
+    borderRadius: 'radii.1',
+    fontSize: '14px',
+  }
+}
 
 export default {
   baseStyle,

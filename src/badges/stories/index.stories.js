@@ -4,9 +4,11 @@ import faker from 'faker'
 import Box from 'ui-box'
 import { Badge, Pill } from '..'
 import { ThemeConsumer } from '../../theme'
+import { Heading } from '../../typography'
 
 const wrapperStyles = {
-  display: 'flex'
+  display: 'flex',
+  margin: 8
 }
 
 const baseStyles = {
@@ -28,17 +30,37 @@ storiesOf('badges', module)
   .add('Badge', () => (
     <ThemeConsumer>
       {theme => (
-        <Box style={{ ...wrapperStyles }}>
-          {Object.keys(theme.tokens.fills).map(color => (
-            <Box key={color}>
-              <Badge color={color} {...baseStyles}>
+        <Box>
+          <Heading marginBottom={8}>Default Appearance</Heading>
+          <Box style={{ ...wrapperStyles }}>
+            {Object.keys(theme.tokens.fills).map(color => (
+                <Box key={color}>
+                <Badge color={color} {...baseStyles}>
                 {color}
               </Badge>
-              <Badge color={color} {...baseStyles} isInteractive>
+                </Box>
+            ))}
+          </Box>
+          <Heading marginBottom={8}>Interactive</Heading>
+          <Box style={{ ...wrapperStyles }}>
+            {Object.keys(theme.tokens.fills).map(color => (
+                <Box key={color}>
+                <Badge color={color} {...baseStyles} isInteractive>
                 {color}
               </Badge>
-            </Box>
-          ))}
+                </Box>
+            ))}
+          </Box>
+          <Heading marginBottom={8}>Medium</Heading>
+          <Box style={{ ...wrapperStyles }}>
+            {Object.keys(theme.tokens.fills).map(color => (
+              <Box key={color}>
+                <Badge color={color} size='medium' {...baseStyles}>
+                  {color}
+                </Badge>
+              </Box>
+            ))}
+          </Box>
         </Box>
       )}
     </ThemeConsumer>
