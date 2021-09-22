@@ -6,7 +6,7 @@ exports[`<Alert /> appearance snapshot 1`] = `
   role="alert"
 >
   <div
-    className="ub-mr_16px ub-ml_2px ub-mt_-1px ub-dspl_flex ub-algn-itms_flex-start ub-box-szg_border-box"
+    className="ub-mr_16px ub-ml_2px ub-dspl_flex ub-algn-itms_flex-start ub-box-szg_border-box"
   >
     <svg
       className="css-1ffn9ia ub-w_16px ub-h_16px ub-box-szg_border-box"
@@ -23,7 +23,7 @@ exports[`<Alert /> appearance snapshot 1`] = `
     className="ub-flx_1 ub-box-szg_border-box"
   >
     <h4
-      className="ub-mt_0px ub-mb_0px ub-color_inherit ub-fnt-fam_b77syt ub-f-wght_500 ub-fnt-sze_14px ub-ln-ht_1 ub-ltr-spc_-0-05px ub-box-szg_border-box"
+      className="ub-mt_0px ub-mb_0px ub-color_inherit ub-fnt-fam_b77syt ub-f-wght_500 ub-fnt-sze_14px ub-ln-ht_18px ub-ltr-spc_-0-05px ub-box-szg_border-box"
     >
       Test title
     </h4>
@@ -40,7 +40,7 @@ exports[`<Alert /> basic snapshot 1`] = `
   role="alert"
 >
   <div
-    className="ub-mr_16px ub-ml_2px ub-mt_-1px ub-dspl_flex ub-algn-itms_flex-start ub-box-szg_border-box"
+    className="ub-mr_16px ub-ml_2px ub-dspl_flex ub-algn-itms_flex-start ub-box-szg_border-box"
   >
     <svg
       className="css-1ffn9ia ub-w_16px ub-h_16px ub-box-szg_border-box"
@@ -57,7 +57,7 @@ exports[`<Alert /> basic snapshot 1`] = `
     className="ub-flx_1 ub-box-szg_border-box"
   >
     <h4
-      className="ub-mt_0px ub-mb_0px ub-color_inherit ub-fnt-fam_b77syt ub-f-wght_500 ub-fnt-sze_14px ub-ln-ht_1 ub-ltr-spc_-0-05px ub-box-szg_border-box"
+      className="ub-mt_0px ub-mb_0px ub-color_inherit ub-fnt-fam_b77syt ub-f-wght_500 ub-fnt-sze_14px ub-ln-ht_18px ub-ltr-spc_-0-05px ub-box-szg_border-box"
     >
       A simple general message
     </h4>
@@ -74,7 +74,7 @@ exports[`<Alert /> intent snapshot 1`] = `
   role="alert"
 >
   <div
-    className="ub-mr_16px ub-ml_2px ub-mt_-1px ub-dspl_flex ub-algn-itms_flex-start ub-box-szg_border-box"
+    className="ub-mr_16px ub-ml_2px ub-dspl_flex ub-algn-itms_flex-start ub-box-szg_border-box"
   >
     <svg
       className="css-tn1wco ub-w_16px ub-h_16px ub-box-szg_border-box"
@@ -91,7 +91,7 @@ exports[`<Alert /> intent snapshot 1`] = `
     className="ub-flx_1 ub-box-szg_border-box"
   >
     <h4
-      className="ub-mt_0px ub-mb_0px ub-color_inherit ub-fnt-fam_b77syt ub-f-wght_500 ub-fnt-sze_14px ub-ln-ht_1 ub-ltr-spc_-0-05px ub-box-szg_border-box"
+      className="ub-mt_0px ub-mb_0px ub-color_inherit ub-fnt-fam_b77syt ub-f-wght_500 ub-fnt-sze_14px ub-ln-ht_18px ub-ltr-spc_-0-05px ub-box-szg_border-box"
     >
       Test title
     </h4>

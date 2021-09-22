@@ -44,7 +44,7 @@ const Alert = memo(
     return (
       <Pane ref={ref} className={cx(className, themedClassName)} role="alert" {...styleProps} {...restProps}>
         {hasIcon && (
-          <Pane marginRight={16} marginLeft={2} marginTop={-1} display="flex" alignItems="flex-start">
+          <Pane marginRight={16} marginLeft={2} display="flex" alignItems="flex-start">
             {getIconForIntent(intentToken, { size: 16 })}
           </Pane>
         )}
@@ -56,7 +56,6 @@ const Alert = memo(
               marginTop={0}
               marginBottom={0}
               fontWeight={500}
-              lineHeight={1}
               // Get this from the theme / props on the Alert
               color="inherit"
             >
@@ -64,7 +63,7 @@ const Alert = memo(
             </Heading>
           )}
           {typeof children === 'string' ? (
-            <Paragraph size={400} color="muted" marginTop={title ? 8 : 0} lineHeight={1}>
+            <Paragraph size={400} color="muted" lineHeight="16px" marginTop={title ? 8 : 0}>
               {children}
             </Paragraph>
           ) : (
