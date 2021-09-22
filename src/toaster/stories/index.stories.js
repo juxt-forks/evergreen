@@ -125,6 +125,26 @@ storiesOf('toaster', module).add('examples', () => (
           Danger remove notification with id
         </Button>
       </Box>
+      <Box marginBottom={12}>
+        <Button marginRight={8} onClick={() => toaster.notify('Top Left', {position: 'top-left'})}>
+          Top Left
+        </Button>
+        <Button marginRight={8} onClick={() => toaster.notify('Top', {position: 'top'})}>
+          Top
+        </Button>
+        <Button marginRight={8} onClick={() => toaster.notify('Top Right', {position: 'top-right'})}>
+          Top Right
+        </Button>
+        <Button marginRight={8} onClick={() => toaster.notify('Bottom Left', {position: 'bottom-left'})}>
+          Bottom Left
+        </Button>
+        <Button marginRight={8} onClick={() => toaster.notify('Bottom', {position: 'bottom'})}>
+          Bottom
+        </Button>
+        <Button marginRight={8} onClick={() => toaster.notify('Bottom Right', {position: 'bottom-right'})}>
+          Bottom Right
+        </Button>
+      </Box>
     </Box>
   </Box>
 ))

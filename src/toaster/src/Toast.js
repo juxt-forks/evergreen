@@ -48,6 +48,20 @@ const animationStyles = css({
   }
 })
 
+const ToastPositionMap = {
+  'bottom': { bottom: 0, left: 0, right: 0 },
+  'bottom-left': { bottom: 0, left: 0 },
+  'bottom-right': { bottom: 0, right: 0 },
+  'top': { top: 0, left: 0, right: 0 },
+  'top-right': { top: 0, right: 0 },
+  'top-left': { top: 0, left: 0 }
+}
+
+const getPosition = position => {
+  position = ToastPositionMap[position]
+  return position || ToastPositionMap.top
+}
+
 const Toast = memo(function Toast(props) {
   const {
     children,
@@ -57,6 +71,7 @@ const Toast = memo(function Toast(props) {
     intent = 'none',
     isShown: isShownProp,
     onRemove,
+    position = 'top',
     title,
     zIndex
   } = props
@@ -113,11 +128,13 @@ const Toast = memo(function Toast(props) {
 
   const styles = useMemo(
     () => ({
+      ...getPosition(position),
+      position: 'absolute',
       height,
       zIndex,
       marginBottom: isShown ? 0 : -height
     }),
-    [isShown, height, zIndex]
+    [isShown, height, zIndex, position]
   )
 
   return (
@@ -138,7 +155,7 @@ const Toast = memo(function Toast(props) {
           onMouseLeave={handleMouseLeave}
           style={styles}
         >
-          <Box ref={onRef} padding={8}>
+          <Box ref={onRef} padding={8} maxWidth={'560px'}>
             <Alert
               flexShrink={0}
               appearance="card"
@@ -197,7 +214,19 @@ Toast.propTypes = {
   /**
    * When false, will close the Toast and call onRemove when finished.
    */
-  isShown: PropTypes.bool
+  isShown: PropTypes.bool,
+
+  /**
+   * The position where Toast is shown on screen
+   */
+  position: PropTypes.oneOf([
+    'top',
+    'top-left',
+    'top-right',
+    'bottom',
+    'bottom-left',
+    'bottom-right'
+  ])
 }
 
 export default Toast
