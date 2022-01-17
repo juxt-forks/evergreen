@@ -10,6 +10,20 @@ import TextTableCell from './TextTableCell'
 
 const emptyProps = {}
 
+const defaultEditBehaviour = (e, setIsEditing, setValue) => {
+  /**
+   * When the user presses a character on the keyboard, use that character
+   * as the value in the text field.
+   */
+  const { key } = e
+  if (key === 'Enter' || key === 'Shift') {
+    setIsEditing(true)
+  } else if (key.match(/^[a-z]{0,10}$/) && !e.metaKey && !e.ctrlKey && !e.altKey) {
+    setIsEditing(true)
+    setValue(prev => prev + key)
+  }
+}
+
 const EditableCell = memo(function EditableCell(props) {
   const {
     children,
@@ -19,6 +33,7 @@ const EditableCell = memo(function EditableCell(props) {
     isSelectable = true,
     textProps = emptyProps,
     autoFocus = false,
+    editBehaviour = defaultEditBehaviour,
     onChange,
     ...rest
   } = props
@@ -43,20 +58,9 @@ const EditableCell = memo(function EditableCell(props) {
   const handleKeyDown = useCallback(
     e => {
       if (disabled) return
-      const { key } = e
-
-      /**
-       * When the user presses a character on the keyboard, use that character
-       * as the value in the text field.
-       */
-      if (key === 'Enter' || key === 'Shift') {
-        setIsEditing(true)
-      } else if (key.match(/^[a-z]{0,10}$/) && !e.metaKey && !e.ctrlKey && !e.altKey) {
-        setIsEditing(true)
-        setValue(prev => prev + key)
-      }
+      editBehaviour(e, setIsEditing, setValue)
     },
-    [disabled]
+    [disabled, editBehaviour]
   )
 
   const handleFieldChangeComplete = useCallback(
@@ -166,12 +170,18 @@ EditableCell.propTypes = {
   size: PropTypes.oneOf([300, 400]),
 
   /**
+   * Function used to determine how keypresses effect edit state and the value
+   * set following a keypress.
+   */
+  editBehaviour: PropTypes.func,
+
+  /**
    * This is the value of the cell.
    */
   children: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
 
   /**
-   * Function called when value changes. (value: string) => void.
+
    */
   onChange: PropTypes.func,
 
