@@ -119,6 +119,7 @@ const Positioner = memo(function Positioner(props) {
   )
 
   // Call `update` whenever the component has "entered" and dimensions change
+  // additionally, when there are dynamic children
   useEffect(() => {
     if (transitionState.current === 'entered') {
       latestAnimationFrame.current = requestAnimationFrame(() => {
@@ -131,7 +132,7 @@ const Positioner = memo(function Positioner(props) {
         cancelAnimationFrame(latestAnimationFrame.current)
       }
     }
-  }, [previousDimensions.height, previousDimensions.width, update])
+  }, [previousDimensions.height, previousDimensions.width, update, children])
 
   const handleEnter = () => {
     transitionState.current = 'entered'
@@ -143,6 +144,16 @@ const Positioner = memo(function Positioner(props) {
     setDimensions(initialDimensions)
     onCloseComplete()
   }
+
+  useEffect(() => {
+    window.addEventListener('resize', update)
+    window.addEventListener('scroll', update)
+
+    return () => {
+      window.removeEventListener('resize', update)
+      window.removeEventListener('scroll', update)
+    }
+  })
 
   return (
     <Stack value={StackingOrder.POSITIONER}>
